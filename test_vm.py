@@ -14,6 +14,14 @@ def test_insert_coin_and_check():
     assert "100원을 넣었습니다" == m.run("동전 100")
     assert "잔액은 100원입니다" == m.run("잔액")
 
+def test_동전_인식():
+    m = VendingMachine()
+    assert "10원을 넣었습니다" == m.run("동전 10")
+    assert "50원을 넣었습니다" == m.run("동전 50")
+    assert "100원을 넣었습니다" == m.run("동전 100")
+    assert "500원을 넣었습니다" == m.run("동전 500")
+    assert "알 수 없는 동전입니다" == m.run("동전 200")
+
 def test_음료_뽑기():
     m = VendingMachine()
     m.run("동전 500")
