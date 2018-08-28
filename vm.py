@@ -19,12 +19,17 @@ class VendingMachine:
                 return "알 수 없는 동전입니다"
 
         elif cmd == "음료":
-            known_beverage = "커피"
-            price = 150
+            known_beverage = {
+                "커피":150,
+                "우유":200,
+                "밀크커피":300,
+            }
 
             beverage = params[0]
-            if beverage != known_beverage:
+            if beverage not in known_beverage:
                 return "알 수 없는 음료입니다"
+                
+            price = known_beverage[beverage]
             if self._change < price:
                 return "잔액이 부족합니다"
             self._change = self._change - price

@@ -23,7 +23,7 @@ def test_동전_인식():
     assert "500원을 넣었습니다" == m.run("동전 500")
     assert "알 수 없는 동전입니다" == m.run("동전 200")
 
-def test_음료_뽑기():
+def test_커피_뽑기():
     m = VendingMachine()
     m.run("동전 500")
     assert "커피가 나왔습니다" == m.run("음료 커피")
@@ -41,6 +41,18 @@ def test_동전이_부족한_상황에서_음료_뽑기():
     assert "잔액이 부족합니다" == m.run("음료 커피")
     assert "잔액은 100원입니다" == m.run("잔액")
 
+def test_우유_뽑기():
+        m = VendingMachine()
+        m.run("동전 500")
+        assert "우유가 나왔습니다" == m.run("음료 우유")
+        assert "잔액은 300원입니다" == m.run("잔액")
+
+def test_밀크커피_뽑기():
+        m = VendingMachine()
+        m.run("동전 500")
+        assert "밀크커피가 나왔습니다" == m.run("음료 밀크커피")
+        assert "잔액은 200원입니다" == m.run("잔액")
+
 # def test_유효하지_않은_동전():
 #     m = VendingMachine()
-#     assert 
+#     assert
