@@ -53,6 +53,20 @@ def test_밀크커피_뽑기():
         assert "밀크커피가 나왔습니다" == m.run("음료 밀크커피")
         assert "잔액은 200원입니다" == m.run("잔액")
 
+def test_반환():
+    m = VendingMachine()
+    m.run("동전 500")
+    m.run("동전 100")
+    m.run("동전 10")
+    m.run("동전 10")
+    m.run("동전 10")
+    assert "다음이 반환되었습니다: 500원 1개, 100원 1개, 50원 0개, 10원 3개" == m.run("반환")
+    assert "잔액은 0원입니다" == m.run("잔액")
+
+def test_0원_반환():
+    m = VendingMachine()
+    assert "반환할 동전이 없습니다" == m.run("반환")
+
 # def test_유효하지_않은_동전():
 #     m = VendingMachine()
 #     assert
